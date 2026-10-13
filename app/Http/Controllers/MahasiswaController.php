@@ -19,8 +19,8 @@ class MahasiswaController extends Controller
     {
         $daftarMahasiswa =
             [
-                ['nama' => 'Dimas Wahyu Nugroho', 'nim' => 242520014, 'ipk' => 35],
-                ['nama' => 'Reza Refansyah', 'nim' => 242520020, 'ipk' => 20],
+                ['nama' => 'Dimas Wahyu Nugroho', 'nim' => 242520014, 'ipk' => 15],
+                ['nama' => 'Reza Refansyah', 'nim' => 242520020, 'ipk' => 30],
                 ['nama' => 'Alfin Hidayat', 'nim' => 23424245, 'ipk' => 25],
                 ['nama' => 'Mauliana Bilqis', 'nim' => 33424245, 'ipk' => 30],
                 ['nama' => 'Nadiyah Afifa', 'nim' => 23422245, 'ipk' => 25],
@@ -33,8 +33,8 @@ class MahasiswaController extends Controller
     {
         $daftarMahasiswa =
             [
-                ['nama' => 'Dimas Wahyu Nugroho', 'nim' => 242520014, 'ipk' => 35],
-                ['nama' => 'Reza Refansyah', 'nim' => 242520020, 'ipk' => 20],
+                ['nama' => 'Dimas Wahyu Nugroho', 'nim' => 242520014, 'ipk' => 15],
+                ['nama' => 'Reza Refansyah', 'nim' => 242520020, 'ipk' => 30],
                 ['nama' => 'Alfin Hidayat', 'nim' => 23424245, 'ipk' => 25],
                 ['nama' => 'Mauliana Bilqis', 'nim' => 33424245, 'ipk' => 30],
                 ['nama' => 'Nadiyah Afifa', 'nim' => 23422245, 'ipk' => 25],

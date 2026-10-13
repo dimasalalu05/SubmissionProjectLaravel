@@ -1,34 +1,51 @@
-<h1>Daftar Mahasiswa Lengkapa</h1>
-<table border="1">
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Nim</th>
-        <th>IPK</th>
-        <th>Kolom Keterangan</th>
-        <th>Detail</th>
-    </tr>
-    @forelse ($daftarMahasiswa as $df)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $df['nama'] }}</td>
-            <td>{{ $df['nim'] }}</td>
-            <td>{{ number_format($df['ipk'] / 10, 1, ',', '.') }}</td>
-            <td>
-                @if ($df['ipk'] > 35)
-                    Cumlaude
-                @elseif ($df['ipk'] >= 30)
-                    Baik
-                @else
-                    Mohon Untuk ditingkatkan
-                @endif
-            </td>
-            <td><a href="{{ route('mahasiswa.detail', $df['nim']) }}">Lihat</a></td>
-        </tr>
+@extends('layouts.app')
 
-    @empty
-        <tr>
-            <td colspan="6">Belum ada data</td>
-        </tr>
-    @endforelse
-</table>
+@section('title', 'Daftar Mahasiswa')
+
+@section('content')
+    <h1 class="text-2xl font-bold mb-4">Daftar Mahasiswa</h1>
+
+    {{-- Mengecek apakah di dalam data ada mahasiswa dengan IPK < 20 (artinya < 2.0) --}}
+    @php
+        $adaIPKRendah = collect($daftarMahasiswa)->contains(function ($mhs) {
+            return $mhs['ipk'] < 20;
+        });
+    @endphp
+
+    {{-- Tampilkan komponen alert bahaya jika ditemukan IPK di bawah 2.0 --}}
+    @if ($adaIPKRendah)
+        <x-alert tipe="bahaya">
+            Peringatan! Terdapat mahasiswa yang memiliki IPK di bawah 2,0. Mohon segera ditinjau!
+        </x-alert>
+    @endif
+
+    <table class="w-full bg-white border border-gray-300 shadow-md rounded">
+        <thead>
+            <tr class="bg-gray-200 text-left">
+                <th class="p-2 border">No</th>
+                <th class="p-2 border">Nama</th>
+                <th class="p-2 border">NIM</th>
+                <th class="p-2 border">IPK</th>
+                <th class="p-2 border">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($daftarMahasiswa as $df)
+                <tr class="border-t">
+                    <td class="p-2 border">{{ $loop->iteration }}</td>
+                    <td class="p-2 border">{{ $df['nama'] }}</td>
+                    <td class="p-2 border">{{ $df['nim'] }}</td>
+                    <td class="p-2 border">{{ number_format($df['ipk'] / 10, 1, ',', '.') }}</td>
+                    <td class="p-2 border">
+                        <a href="{{ route('mahasiswa.detail', $df['nim']) }}"
+                            class="text-blue-500 hover:underline">Lihat</a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="p-4 text-center text-gray-500">Belum ada data mahasiswa.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+@endsection
