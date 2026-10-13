@@ -17,7 +17,7 @@ class ProdukController extends Controller
         return view('produk.index', compact('produk'));
     }
 
-    public function show($id)
+    public function show(int $id) //parameter dari url
     {
         abort_unless($id <= 2, 404);
         return view('produk.show', ['id' => $id]);
