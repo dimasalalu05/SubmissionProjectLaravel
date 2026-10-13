@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
 
 // 3.1 Route Sederhana (Closure)
 Route::get('/', function () {
@@ -54,3 +55,8 @@ Route::view('/tentang', 'tentang')->name('tentang');
 Route::get('/kontak', function () {
     return view('kontak', ['email' => 'info@kampus.ac.id']);
 })->name('kontak');
+
+
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+Route::resource('produk', ProdukController::class); // 7 route CRUD sekaligus
