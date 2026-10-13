@@ -6,6 +6,7 @@
         <th>Nim</th>
         <th>IPK</th>
         <th>Kolom Keterangan</th>
+        <th>Detail</th>
     </tr>
     @forelse ($daftarMahasiswa as $df)
         <tr>
@@ -22,10 +23,12 @@
                     Mohon Untuk ditingkatkan
                 @endif
             </td>
+            <td><a href="{{ route('mahasiswa.detail', $df['nim']) }}">Lihat</a></td>
         </tr>
+
     @empty
         <tr>
-            <td colspan="4">Belum ada data</td>
+            <td colspan="6">Belum ada data</td>
         </tr>
     @endforelse
 </table>

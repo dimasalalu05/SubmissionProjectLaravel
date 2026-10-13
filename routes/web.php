@@ -64,3 +64,4 @@ Route::resource('produk', ProdukController::class);
 
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
 Route::get('/daftar', [MahasiswaController::class, 'daftar'])->name('mahasiswa.mahasiswaa');
+Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'show'])->name('mahasiswa.detail');
