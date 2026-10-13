@@ -61,4 +61,6 @@ Route::get('/kontak', function () {
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
 Route::resource('produk', ProdukController::class);
+
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
+Route::get('/daftar', [MahasiswaController::class, 'daftar'])->name('mahasiswa.mahasiswaa');

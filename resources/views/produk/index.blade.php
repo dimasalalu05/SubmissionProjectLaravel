@@ -25,7 +25,7 @@
         </tr>
     @empty
         <tr>
-            <td colspan="5">Belum ada produk.</td>
+            <td colspan="6">Belum ada produk.</td>
         </tr>
     @endforelse
 </table>
