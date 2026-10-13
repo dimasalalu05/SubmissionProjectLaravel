@@ -59,4 +59,4 @@ Route::get('/kontak', function () {
 
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
-Route::resource('produk', ProdukController::class); // 7 route CRUD sekaligus
+Route::resource('produk', ProdukController::class);
