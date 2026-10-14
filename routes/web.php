@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\daftarBuku;
 
 // 3.1 Route Sederhana (Closure)
 Route::get('/', function () {
@@ -65,3 +66,5 @@ Route::resource('produk', ProdukController::class);
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
 Route::get('/daftar', [MahasiswaController::class, 'daftar'])->name('mahasiswa.mahasiswaa');
 Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'show'])->name('mahasiswa.detail');
+
+Route::get('/daftarbuku', [daftarBuku::class, 'index'])->name('daftarBuku');
