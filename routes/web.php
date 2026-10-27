@@ -59,8 +59,12 @@ Route::get('/kontak', function () {
 })->name('kontak');
 
 
-Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
-Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+// Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/product', [ProdukController::class, 'index'])->name('produk.product');
+
+// Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show'c);
+Route::get('/product/{id}', [ProdukController::class, 'showw'])->name('produk.show');
+// Route::get('/product/{id}', [ProdukController::class, 'show'])->name('produk.product');
 Route::resource('produk', ProdukController::class);
 
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');

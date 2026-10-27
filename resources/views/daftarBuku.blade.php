@@ -4,9 +4,8 @@
         /** Mengecek apakah ada stok yang kosong
          *contains() hanya memnetukan true or false
          */
-        $stokKosong = collect($daftarBuku)->contains(function ($sk) {
-            return $sk['stok'] == 0;
-        });
+        $stokKosong = collect($daftarBuku)->contains(fn($sk) => $sk['stok'] == 0);
+
     @endphp
 
     @if ($stokKosong)
